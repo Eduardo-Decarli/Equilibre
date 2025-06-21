@@ -1,6 +1,7 @@
 package com.decarli.equilibre.control.service;
 
 import com.decarli.equilibre.model.entity.FTPConnection;
+import org.apache.commons.net.ftp.FTPFile;
 
 import java.io.IOException;
 

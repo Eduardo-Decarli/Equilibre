@@ -2,6 +2,7 @@ package com.decarli.equilibre.control.controller;
 
 import com.decarli.equilibre.model.entity.FTPConnection;
 import com.decarli.equilibre.control.service.FTPService;
+import org.apache.commons.net.ftp.FTPFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ public class FTPController {
     @Autowired
     private FTPService ftpService;
 
-    @GetMapping("findFiles")
+    @PostMapping("/findFiles")
     public ResponseEntity<String[]> listFiles(@RequestBody FTPConnection connection) throws IOException {
         String[] files = ftpService.listFiles(connection);
         return ResponseEntity.status(HttpStatus.FOUND).body(files);

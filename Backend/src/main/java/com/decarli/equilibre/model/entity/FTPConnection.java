@@ -9,11 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class FTPConnection {
 
-    private String IP;
+    private String connection;
     private int port;
     private String user;
     private String password;
 
     private String path;
-
 }
