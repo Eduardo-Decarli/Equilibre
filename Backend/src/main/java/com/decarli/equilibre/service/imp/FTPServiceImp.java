@@ -3,19 +3,24 @@ package com.decarli.equilibre.service.imp;
 import com.decarli.equilibre.model.entity.FTPConnection;
 import com.decarli.equilibre.service.FTPService;
 import org.apache.commons.net.ftp.FTPClient;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.List;
 
+@Service
 public class FTPServiceImp implements FTPService {
 
     public String[] listFiles(FTPConnection connection) throws IOException {
         FTPClient client = createConnection(connection);
-
-        String[] files = client.listNames();
-        client.logout();
-        client.disconnect();
-        return files;
+        try{
+            String[] files = client.listNames();
+            return files;
+        } finally {
+            if(client.isConnected()) {
+                client.logout();
+                client.disconnect();
+            }
+        }
     }
 
     public void sendFile() {
@@ -24,8 +29,10 @@ public class FTPServiceImp implements FTPService {
     private FTPClient createConnection(FTPConnection connection) throws IOException {
         FTPClient client = new FTPClient();
 
-        client.connect(connection.getConnection());
-        client.login(connection.getUser(), connection.getPassword());
+        client.connect(connection.getConnection(), connection.getPort());
+        if (connection.getUser() != null && connection.getPassword() != null) {
+            client.login(connection.getUser(), connection.getPassword());
+        }
 
         return client;
     }
