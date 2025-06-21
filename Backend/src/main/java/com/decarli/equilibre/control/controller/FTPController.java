@@ -1,7 +1,7 @@
-package com.decarli.equilibre.controller;
+package com.decarli.equilibre.control.controller;
 
 import com.decarli.equilibre.model.entity.FTPConnection;
-import com.decarli.equilibre.service.FTPService;
+import com.decarli.equilibre.control.service.FTPService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

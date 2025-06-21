@@ -1,4 +1,4 @@
-package com.decarli.equilibre.service;
+package com.decarli.equilibre.control.service;
 
 import com.decarli.equilibre.model.entity.FTPConnection;
 
