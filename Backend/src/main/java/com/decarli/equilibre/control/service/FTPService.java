@@ -8,5 +8,5 @@ import java.io.IOException;
 public interface FTPService {
 
     String[] listFiles(FTPConnection connection) throws IOException;
-    void sendFile();
+    void sendFile(FTPConnection connection) throws IOException;
 }

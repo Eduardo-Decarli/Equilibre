@@ -1,0 +1,153 @@
+/* Reset básico e fonte */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #c3dafe, #e0e7ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Container principal */
+.container {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 12px 25px rgba(99, 102, 241, 0.3);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  user-select: none;
+}
+
+/* Título */
+h1 {
+  margin-bottom: 25px;
+  font-weight: 700;
+  color: #334155;
+  letter-spacing: 1.5px;
+  font-size: 1.9rem;
+}
+
+/* Label e select */
+label {
+  display: block;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 2px solid #94a3b8;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 6px #6366f1aa;
+}
+
+/* Botões */
+button {
+  background: #6366f1;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  box-shadow: 0 6px 12px rgba(99, 102, 241, 0.4);
+  min-width: 130px;
+}
+
+button:hover:not(:disabled) {
+  background: #4f46e5;
+  box-shadow: 0 8px 16px rgba(79, 70, 229, 0.6);
+}
+
+button:disabled {
+  background: #a5b4fc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Sequência e contagem */
+.sequence, #countdown, #challenge-type {
+  margin: 20px 0 10px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e293b;
+  min-height: 42px;
+}
+
+/* Input */
+input#userInput {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1.1rem;
+  border: 2px solid #94a3b8;
+  border-radius: 10px;
+  transition: border-color 0.3s ease;
+  user-select: text;
+}
+
+input#userInput:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 6px #6366f1aa;
+}
+
+/* Feedback */
+#feedback {
+  margin-top: 15px;
+  min-height: 36px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #475569;
+  user-select: none;
+  word-wrap: break-word;
+}
+
+/* Feedback cores específicas */
+#feedback.green {
+  color: #16a34a;
+}
+
+#feedback.red {
+  color: #dc2626;
+}
+
+#feedback.orange {
+  color: #f59e0b;
+}
+
+/* Responsividade simples */
+@media (max-width: 480px) {
+  .container {
+    padding: 25px 20px;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  button {
+    width: 100%;
+    min-width: unset;
+  }
+}

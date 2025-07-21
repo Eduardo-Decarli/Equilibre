@@ -23,8 +23,9 @@ public class FTPController {
         return ResponseEntity.status(HttpStatus.FOUND).body(files);
     }
 
-    @PostMapping
-    public ResponseEntity<Void> sendFile() {
-        return null;
+    @PostMapping("/sendFile")
+    public ResponseEntity<Void> sendFile(@RequestBody FTPConnection connection) throws IOException {
+        ftpService.sendFile(connection);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 }

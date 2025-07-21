@@ -11,8 +11,11 @@ public class FTPConnection {
 
     private String connection;
     private int port;
+
     private String user;
     private String password;
 
     private String path;
+
+    private String filePath;
 }
