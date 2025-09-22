@@ -75,7 +75,7 @@ function startCountdown(seconds) {
       inputEl.focus();
       inputEl.select();
     }
-  }, 1000);
+  }, 2000);
 }
 
 function checkAnswer() {
