@@ -1,7 +1,7 @@
-package com.decarli.equilibre.control.service.imp;
+package com.decarli.equilibre.service.imp;
 
 import com.decarli.equilibre.model.entity.FTPConnection;
-import com.decarli.equilibre.control.service.FTPService;
+import com.decarli.equilibre.service.FTPService;
 import org.apache.commons.net.ftp.FTPClient;
 import org.springframework.stereotype.Service;
 
@@ -39,7 +39,10 @@ public class FTPServiceImp implements FTPService {
 
         File file = new File(connection.getFilePath());
 
-        try(InputStream inputStream = new FileInputStream(connection.getFilePath())) {
+
+
+        try {
+            InputStream inputStream = new FileInputStream(connection.getFilePath());
             boolean sucesso = client.storeFile(connection.getPath() + "/" + file.getName(), inputStream);
             if(sucesso) {
                 System.out.println("Upload Feito com Sucesso");
