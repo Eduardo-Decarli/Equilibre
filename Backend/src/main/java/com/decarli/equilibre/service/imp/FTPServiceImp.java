@@ -5,10 +5,7 @@ import com.decarli.equilibre.service.FTPService;
 import org.apache.commons.net.ftp.FTPClient;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 @Service
 public class FTPServiceImp implements FTPService {
@@ -38,22 +35,46 @@ public class FTPServiceImp implements FTPService {
         client.setFileType(FTPClient.BINARY_FILE_TYPE);
 
         File file = new File(connection.getFilePath());
+        long totalSize = file.length(); // Tamanho total do arquivo
 
+        try (InputStream inputStream = new FileInputStream(file);
+             OutputStream outputStream = client.storeFileStream(connection.getPath() + "/" + file.getName())) {
 
-
-        try {
-            InputStream inputStream = new FileInputStream(connection.getFilePath());
-            boolean sucesso = client.storeFile(connection.getPath() + "/" + file.getName(), inputStream);
-            if(sucesso) {
-                System.out.println("Upload Feito com Sucesso");
-            } else {
-                System.out.println("Falha ao realizar o Upload");
+            if (outputStream == null) {
+                System.out.println("Falha ao iniciar upload (stream nula).");
+                return;
             }
-        }
 
-        finally {
-            client.logout();
-            client.disconnect();
+            byte[] buffer = new byte[4096];
+            long totalSent = 0;
+            int bytesRead;
+            int lastPercent = 0;
+
+            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, bytesRead);
+                totalSent += bytesRead;
+
+                int percent = (int) ((totalSent * 100) / totalSize);
+                if (percent != lastPercent) {
+                    System.out.println("Progresso: " + percent + "%");
+                    lastPercent = percent;
+                }
+            }
+
+            outputStream.flush();
+
+            boolean completed = client.completePendingCommand();
+            if (completed) {
+                System.out.println("Upload concluído com sucesso!");
+            } else {
+                System.out.println("Falha ao concluir o upload.");
+            }
+
+        } finally {
+            if (client.isConnected()) {
+                client.logout();
+                client.disconnect();
+            }
         }
     }
 

@@ -1,8 +1,61 @@
-<div class="container">
-  <div class="container__right" >
-    <app-navegation />
+<app-side-menu></app-side-menu>
+
+<header class="hero" role="banner">
+  <div class="hero-inner">
+    <h1 class="hero-title">Bem-vindo ao MinhaApp</h1>
+    <p class="hero-subtitle">Uma interface simples e responsiva para sua aplicação Angular.</p>
+    <div class="hero-ctas">
+      <a class="btn primary" href="#">Começar</a>
+      <a class="btn ghost" href="#">Ver docs</a>
+    </div>
   </div>
-  <div class="container__left">
-    <h1>Welcome to Equilibre</h1>
+  <div class="hero-illustration" aria-hidden="true"></div>
+</header>
+
+<main class="container" role="main">
+  <section class="cards" aria-label="Principais funções">
+    <article class="card">
+      <h2 class="card-title">Dashboard</h2>
+      <p class="card-body">Visão geral dos seus dados com gráficos e métricas importantes.</p>
+      <a class="card-link" href="#">Ir para dashboard →</a>
+    </article>
+
+    <article class="card">
+      <h2 class="card-title">Transferências</h2>
+      <p class="card-body">Gerencie uploads e monitore progresso em tempo real.</p>
+      <a class="card-link" href="#">Gerenciar →</a>
+    </article>
+
+    <article class="card">
+      <h2 class="card-title">Configurações</h2>
+      <p class="card-body">Perfis, integrações e preferências da aplicação.</p>
+      <a class="card-link" href="#">Abrir configurações →</a>
+    </article>
+  </section>
+
+  <section class="info" aria-label="Informações adicionais">
+    <div class="info-text">
+      <h3>Design pensado para produtividade</h3>
+      <p>Componentes leves, tipografia legível e contraste adequado para facilitar longas sessões de uso.</p>
+    </div>
+    <aside class="info-aside">
+      <dl>
+        <dt>Modo</dt>
+        <dd>Claro / Escuro (pronto para implementar)</dd>
+        <dt>Responsivo</dt>
+        <dd>Mobile → Desktop</dd>
+      </dl>
+    </aside>
+  </section>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <span>© <strong>MinhaApp</strong> — {{ 'currentYear' }}</span>
+    <nav aria-label="Links do rodapé">
+      <a href="#">Ajuda</a>
+      <a href="#">Privacidade</a>
+      <a href="#">Contato</a>
+    </nav>
   </div>
-</div>
+</footer>

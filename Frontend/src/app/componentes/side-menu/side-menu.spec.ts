@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Navegation } from './navegation';
+import { SideMenu } from './side-menu';
 
-describe('Navegation', () => {
-  let component: Navegation;
-  let fixture: ComponentFixture<Navegation>;
+describe('SideMenu', () => {
+  let component: SideMenu;
+  let fixture: ComponentFixture<SideMenu>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Navegation]
+      imports: [SideMenu]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Navegation);
+    fixture = TestBed.createComponent(SideMenu);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

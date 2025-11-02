@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Navegation } from "../../componentes/navegation/navegation";
+import { SideMenu } from '../../componentes/side-menu/side-menu';
 
 @Component({
   selector: 'app-index',
-  imports: [Navegation],
+  imports: [SideMenu],
   templateUrl: './index.html',
   styleUrl: './index.scss',
 })

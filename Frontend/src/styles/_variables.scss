@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap');
 
 :root {
-  --primary-color: #077292;
-  --bg-index: linear-gradient(90deg, rgba(42, 176, 209, 1) 0%, rgba(28, 142, 199, 1) 50%, rgba(134, 19, 207, 1) 100%);
-  --primary-navegation-bg: #2e2a2a;
-  --navegation-color: #FFF;
+  --bg: #f6f8fa;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --accent-600: #1e40af;
+  --radius: 12px;
+  --gap: 1.25rem;
+  --max-width: 1100px;
+  --shadow: 0 6px 18px rgba(20, 20, 30, 0.06);
+  --glass: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6));
 }

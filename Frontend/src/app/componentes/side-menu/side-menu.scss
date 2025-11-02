@@ -1,0 +1,121 @@
+/* Estilo geral */
+:host {
+  display: block;
+}
+
+/* Container principal */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background: #1e293b;
+  color: #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+}
+
+/* Cabeçalho */
+.menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1rem;
+  background: #111827;
+}
+
+.logo {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.toggle {
+  background: none;
+  border: none;
+  color: #f1f5f9;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Links */
+.menu-links {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-links li {
+  margin-bottom: 0.5rem;
+}
+
+.menu-links a {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+  color: #cbd5e1;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+
+.menu-links a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.menu-links a.active {
+  background: #2563eb;
+  color: #fff;
+}
+
+/* Ícones e texto */
+.icon {
+  margin-right: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.text {
+  white-space: nowrap;
+}
+
+/* Estado recolhido */
+.side-menu.collapsed {
+  width: 70px;
+}
+
+.side-menu.collapsed .menu-header {
+  justify-content: center;
+  width: 70px;
+}
+
+.side-menu.collapsed .text {
+  display: none;
+}
+
+.side-menu.collapsed .icon {
+  margin: 0 auto;
+}
+
+/* Responsivo: em telas menores, menu vira overlay */
+@media (max-width: 768px) {
+  .side-menu {
+    position: fixed;
+    left: -250px;
+  }
+
+  .side-menu.open {
+    left: 0;
+  }
+}
